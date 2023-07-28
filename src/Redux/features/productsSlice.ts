@@ -1,20 +1,10 @@
 import {createSlice} from "@reduxjs/toolkit";
-
-export enum ECategories {
-    cpu = "cpu",
-    storage = "storage",
-    ram = "ram",
-    monitor = "monitor",
-    keyboard = "keyboard",
-    mouse = "mouse",
-    power_supply = "power_supply",
-    motherboard = "motherboard"
-}
-
+//"cpu" | "storage" | "ram" | "monitor" | "keyboard" | "mouse" | "power_supply" | "motherboard"
 export type TProduct = {
+    id: number,
     image: string;
     name: string;
-    category: ECategories;
+    category: string;
     price: number;
     status: string;
     rating: number;

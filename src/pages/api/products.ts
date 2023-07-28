@@ -5,7 +5,7 @@ const data = {
         {
             "id": 1,
             "category": "cpu",
-            "product_name": "Intel Core i7-10700K",
+            "name": "Intel Core i7-10700K",
             "price": 349.99,
             "status": "In Stock",
             "rating": 4.5,
@@ -14,7 +14,7 @@ const data = {
         {
             "id": 2,
             "category": "cpu",
-            "product_name": "AMD Ryzen 9 5900X",
+            "name": "AMD Ryzen 9 5900X",
             "price": 499.99,
             "status": "In Stock",
             "rating": 4.8,
@@ -23,7 +23,7 @@ const data = {
         {
             "id": 3,
             "category": "cpu",
-            "product_name": "Intel Core i5-11600K",
+            "name": "Intel Core i5-11600K",
             "price": 259.99,
             "status": "In Stock",
             "rating": 4.3,
@@ -32,7 +32,7 @@ const data = {
         {
             "id": 4,
             "category": "cpu",
-            "product_name": "AMD Ryzen 7 5800X",
+            "name": "AMD Ryzen 7 5800X",
             "price": 399.99,
             "status": "Out of Stock",
             "rating": 4.6,
@@ -41,7 +41,7 @@ const data = {
         {
             "id": 51,
             "category": "cpu",
-            "product_name": "Intel Core i9-12900K",
+            "name": "Intel Core i9-12900K",
             "price": 699.99,
             "status": "In Stock",
             "rating": 4.9,
@@ -50,7 +50,7 @@ const data = {
         {
             "id": 5,
             "category": "motherboard",
-            "product_name": "ASUS ROG Strix Z590-E Gaming",
+            "name": "ASUS ROG Strix Z590-E Gaming",
             "price": 299.99,
             "status": "In Stock",
             "rating": 4.7,
@@ -59,7 +59,7 @@ const data = {
         {
             "id": 6,
             "category": "motherboard",
-            "product_name": "MSI MPG B550 Gaming Edge WiFi",
+            "name": "MSI MPG B550 Gaming Edge WiFi",
             "price": 189.99,
             "status": "In Stock",
             "rating": 4.4,
@@ -68,7 +68,7 @@ const data = {
         {
             "id": 7,
             "category": "motherboard",
-            "product_name": "Gigabyte B450 AORUS Elite",
+            "name": "Gigabyte B450 AORUS Elite",
             "price": 129.99,
             "status": "Out of Stock",
             "rating": 4.2,
@@ -77,7 +77,7 @@ const data = {
         {
             "id": 8,
             "category": "motherboard",
-            "product_name": "ASRock B560M Pro4",
+            "name": "ASRock B560M Pro4",
             "price": 139.99,
             "status": "In Stock",
             "rating": 4.0,
@@ -86,7 +86,7 @@ const data = {
         {
             "id": 9,
             "category": "motherboard",
-            "product_name": "ASUS Prime X570-P",
+            "name": "ASUS Prime X570-P",
             "price": 179.99,
             "status": "In Stock",
             "rating": 4.5,
@@ -95,7 +95,7 @@ const data = {
         {
             "id": 92,
             "category": "ram",
-            "product_name": "Corsair Vengeance LPX 16GB (2x8GB) DDR4 3200MHz",
+            "name": "Corsair Vengeance LPX 16GB (2x8GB) DDR4 3200MHz",
             "price": 89.99,
             "status": "In Stock",
             "rating": 4.6,
@@ -104,7 +104,7 @@ const data = {
         {
             "id": 10,
             "category": "ram",
-            "product_name": "G.SKILL Trident Z RGB Series 32GB (2x16GB) DDR4 3600MHz",
+            "name": "G.SKILL Trident Z RGB Series 32GB (2x16GB) DDR4 3600MHz",
             "price": 179.99,
             "status": "In Stock",
             "rating": 4.8,
@@ -113,7 +113,7 @@ const data = {
         {
             "id": 11,
             "category": "ram",
-            "product_name": "Crucial Ballistix 8GB DDR4 2666MHz",
+            "name": "Crucial Ballistix 8GB DDR4 2666MHz",
             "price": 49.99,
             "status": "Out of Stock",
             "rating": 4.0,
@@ -122,7 +122,7 @@ const data = {
         {
             "id": 12,
             "category": "ram",
-            "product_name": "Kingston HyperX Fury 16GB (2x8GB) DDR4 3000MHz",
+            "name": "Kingston HyperX Fury 16GB (2x8GB) DDR4 3000MHz",
             "price": 79.99,
             "status": "In Stock",
             "rating": 4.4,
@@ -131,7 +131,7 @@ const data = {
         {
             "id": 13,
             "category": "ram",
-            "product_name": "Patriot Viper Steel Series 64GB (2x32GB) DDR4 3200MHz",
+            "name": "Patriot Viper Steel Series 64GB (2x32GB) DDR4 3200MHz",
             "price": 299.99,
             "status": "In Stock",
             "rating": 4.9,
@@ -140,7 +140,7 @@ const data = {
         {
             "id": 14,
             "category": "power_supply",
-            "product_name": "EVGA Supernova 750 G+",
+            "name": "EVGA Supernova 750 G+",
             "price": 129.99,
             "status": "In Stock",
             "rating": 4.7,
@@ -149,7 +149,7 @@ const data = {
         {
             "id": 15,
             "category": "power_supply",
-            "product_name": "Corsair RM850x",
+            "name": "Corsair RM850x",
             "price": 149.99,
             "status": "In Stock",
             "rating": 4.8,
@@ -158,7 +158,7 @@ const data = {
         {
             "id": 16,
             "category": "power_supply",
-            "product_name": "Seasonic Focus GM-750",
+            "name": "Seasonic Focus GM-750",
             "price": 119.99,
             "status": "Out of Stock",
             "rating": 4.6,
@@ -167,7 +167,7 @@ const data = {
         {
             "id": 17,
             "category": "power_supply",
-            "product_name": "Thermaltake Toughpower GF1 650W",
+            "name": "Thermaltake Toughpower GF1 650W",
             "price": 99.99,
             "status": "In Stock",
             "rating": 4.3,
@@ -176,7 +176,7 @@ const data = {
         {
             "id": 18,
             "category": "power_supply",
-            "product_name": "NZXT C750",
+            "name": "NZXT C750",
             "price": 139.99,
             "status": "In Stock",
             "rating": 4.5,
@@ -185,7 +185,7 @@ const data = {
         {
             "id": 19,
             "category": "storage",
-            "product_name": "Samsung 970 EVO Plus 1TB NVMe SSD",
+            "name": "Samsung 970 EVO Plus 1TB NVMe SSD",
             "price": 199.99,
             "status": "In Stock",
             "rating": 4.9,
@@ -194,7 +194,7 @@ const data = {
         {
             "id": 20,
             "category": "storage",
-            "product_name": "Western Digital Blue 2TB HDD",
+            "name": "Western Digital Blue 2TB HDD",
             "price": 69.99,
             "status": "In Stock",
             "rating": 4.5,
@@ -203,7 +203,7 @@ const data = {
         {
             "id": 21,
             "category": "storage",
-            "product_name": "Seagate BarraCuda 4TB HDD",
+            "name": "Seagate BarraCuda 4TB HDD",
             "price": 99,
             "status": "Out of Stock",
             "rating": 4.3,
@@ -212,7 +212,7 @@ const data = {
         {
             "id": 22,
             "category": "storage",
-            "product_name": "Crucial MX500 500GB SATA SSD",
+            "name": "Crucial MX500 500GB SATA SSD",
             "price": 79.99,
             "status": "In Stock",
             "rating": 4.7,
@@ -221,7 +221,7 @@ const data = {
         {
             "id": 23,
             "category": "storage",
-            "product_name": "SanDisk Extreme Pro 256GB microSDXC",
+            "name": "SanDisk Extreme Pro 256GB microSDXC",
             "price": 49.99,
             "status": "In Stock",
             "rating": 4.6,
@@ -230,7 +230,7 @@ const data = {
         {
             "id": 24,
             "category": "monitor",
-            "product_name": "Dell S2719DGF 27-inch Gaming Monitor",
+            "name": "Dell S2719DGF 27-inch Gaming Monitor",
             "price": 349.99,
             "status": "In Stock",
             "rating": 4.7,
@@ -239,7 +239,7 @@ const data = {
         {
             "id": 25,
             "category": "monitor",
-            "product_name": "LG 34GN850-B 34-inch UltraGear Curved Gaming Monitor",
+            "name": "LG 34GN850-B 34-inch UltraGear Curved Gaming Monitor",
             "price": 899.99,
             "status": "In Stock",
             "rating": 4.9,
@@ -248,7 +248,7 @@ const data = {
         {
             "id": 26,
             "category": "monitor",
-            "product_name": "ASUS ProArt PA278QV 27-inch Professional Monitor",
+            "name": "ASUS ProArt PA278QV 27-inch Professional Monitor",
             "price": 349.99,
             "status": "Out of Stock",
             "rating": 4.6,
@@ -257,7 +257,7 @@ const data = {
         {
             "id": 27,
             "category": "monitor",
-            "product_name": "Acer R240HY 23.8-inch IPS Monitor",
+            "name": "Acer R240HY 23.8-inch IPS Monitor",
             "price": 149.99,
             "status": "In Stock",
             "rating": 4.5,
@@ -266,7 +266,7 @@ const data = {
         {
             "id": 28,
             "category": "monitor",
-            "product_name": "ViewSonic VX3276-MHD 32-inch Full HD Monitor",
+            "name": "ViewSonic VX3276-MHD 32-inch Full HD Monitor",
             "price": 229.99,
             "status": "In Stock",
             "rating": 4.4,
@@ -275,7 +275,7 @@ const data = {
         {
             "id": 29,
             "category": "keyboard",
-            "product_name": "Logitech G Pro Mechanical Gaming Keyboard",
+            "name": "Logitech G Pro Mechanical Gaming Keyboard",
             "price": 129.99,
             "status": "In Stock",
             "rating": 4.8,
@@ -284,7 +284,7 @@ const data = {
         {
             "id": 30,
             "category": "keyboard",
-            "product_name": "Corsair K95 RGB Platinum XT Mechanical Gaming Keyboard",
+            "name": "Corsair K95 RGB Platinum XT Mechanical Gaming Keyboard",
             "price": 199.99,
             "status": "In Stock",
             "rating": 4.9,
@@ -293,7 +293,7 @@ const data = {
         {
             "id": 31,
             "category": "keyboard",
-            "product_name": "Razer Huntsman Mini 60% Gaming Keyboard",
+            "name": "Razer Huntsman Mini 60% Gaming Keyboard",
             "price": 119.99,
             "status": "Out of Stock",
             "rating": 4.7,
@@ -302,7 +302,7 @@ const data = {
         {
             "id": 32,
             "category": "keyboard",
-            "product_name": "SteelSeries Apex Pro TKL Mechanical Gaming Keyboard",
+            "name": "SteelSeries Apex Pro TKL Mechanical Gaming Keyboard",
             "price": 169.99,
             "status": "In Stock",
             "rating": 4.6,
@@ -311,7 +311,7 @@ const data = {
         {
             "id": 33,
             "category": "keyboard",
-            "product_name": "Microsoft Surface Ergonomic Keyboard",
+            "name": "Microsoft Surface Ergonomic Keyboard",
             "price": 129.99,
             "status": "In Stock",
             "rating": 4.5,
@@ -320,7 +320,7 @@ const data = {
         {
             "id": 34,
             "category": "mouse",
-            "product_name": "Logitech G Pro Wireless Gaming Mouse",
+            "name": "Logitech G Pro Wireless Gaming Mouse",
             "price": 149.99,
             "status": "In Stock",
             "rating": 4.8,
@@ -329,7 +329,7 @@ const data = {
         {
             "id": 35,
             "category": "mouse",
-            "product_name": "Razer DeathAdder V2 Pro Wireless Gaming Mouse",
+            "name": "Razer DeathAdder V2 Pro Wireless Gaming Mouse",
             "price": 129.99,
             "status": "In Stock",
             "rating": 4.7,
@@ -337,7 +337,7 @@ const data = {
         },
         {
             "category": "mouse",
-            "product_name": "SteelSeries Rival 650 Wireless Gaming Mouse",
+            "name": "SteelSeries Rival 650 Wireless Gaming Mouse",
             "price": 109.99,
             "status": "Out of Stock",
             "rating": 4.6,
@@ -346,7 +346,7 @@ const data = {
         {
             "id": 36,
             "category": "mouse",
-            "product_name": "Corsair Dark Core RGB Pro SE Wireless Gaming Mouse",
+            "name": "Corsair Dark Core RGB Pro SE Wireless Gaming Mouse",
             "price": 89.99,
             "status": "In Stock",
             "rating": 4.4,
@@ -355,7 +355,7 @@ const data = {
         {
             "id": 37,
             "category": "mouse",
-            "product_name": "Microsoft Surface Precision Mouse",
+            "name": "Microsoft Surface Precision Mouse",
             "price": 89.99,
             "status": "In Stock",
             "rating": 4.3,
