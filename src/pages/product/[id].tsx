@@ -13,6 +13,26 @@ export default function ProductDetails({data}: { data: TProduct | null }) {
                     router?.query?.id
                 }
             </h1>
+            <div className='row'>
+                <div className='col-sm-12 col-md-6'>
+                    <img src={data?.image} alt="product image" width={"100%"} style={{maxHeight: "35em"}}/>
+                </div>
+                <div className='col-sm-12 col-md-6'>
+                    <div className='p-5'>
+                        <div className=''>
+                            <h1>{data?.name}</h1>
+                            <h2>{data?.price} USD</h2>
+                            <h5>
+                                lorem ipsum dolor sit amet, consectetur adip non pro id el component qui offic et dolore
+                                mag et
+                            </h5>
+                        </div>
+                        <div>
+                            <button>Buy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
     )
