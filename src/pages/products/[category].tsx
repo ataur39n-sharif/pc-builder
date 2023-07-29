@@ -1,32 +1,50 @@
 import {useRouter} from "next/router";
 import {TProduct} from "@/Redux/features/productsSlice";
+import {useAppDispatch, useAppSelector} from "@/Redux/hooks";
+import {addToList, categoryList, removeFromList} from "@/Redux/features/pcBuildSlice";
+import {Button} from "react-bootstrap";
 
 export default function ProductsByCategory({data}: { data: TProduct[] | [] }) {
-    const router = useRouter()
-
-    console.log(data)
+    const {query} = useRouter()
+    const pcParts = useAppSelector((state) => state.pcBuild)
+    const dispatch = useAppDispatch()
+    // @ts-ignore
+    const parts: TProduct | null | undefined = pcParts[query.category]
 
     return (
         <div className='container mt-5'>
             <h1>
                 {
-                    router?.query?.category
+                    query?.category
                 }
             </h1>
             {
                 data?.map((pd) => {
                     return (
-                        <div className='row m-5' style={{border: "1px solid red", maxHeight: "33vh"}}>
-                            <div className={'col-sm-12 col-md-6'}>
-                                <div style={{position: "relative", maxHeight: ""}}>
-                                    <img src={pd.image} alt={pd.name} width={"100%"}/>
+                        <div className='row m-3 p-3' style={{border: "1px solid red", maxHeight: "33vh"}}>
+                            <div className={'col-sm-12 col-md-4 '}>
+                                <div className={'d-flex justify-content-center align-items-center'}
+                                     style={{position: "relative", maxHeight: ""}}>
+                                    <img src={pd.image} alt={pd.name} width={"75%"}/>
                                 </div>
                             </div>
-                            <div className={'col-sm-12 col-md-3'}>
+                            <div className={'col-sm-12 col-md-5 text-center'}>
                                 details
                             </div>
-                            <div className={'col-sm-12 col-md-3'}>
-                                btn
+                            <div className={'col-sm-12 col-md-3 text-center'}>
+                                {
+                                    (parts && (parts.id === pd.id)) ? <Button
+                                        variant={"outline-dark"}
+                                        onClick={() => dispatch(removeFromList(pd))}
+                                    >
+                                        Remove component
+                                    </Button> : <Button
+                                        variant={"outline-dark"}
+                                        onClick={() => dispatch(addToList(pd))}
+                                    >
+                                        Select component
+                                    </Button>
+                                }
                             </div>
                         </div>
                     )
@@ -38,17 +56,11 @@ export default function ProductsByCategory({data}: { data: TProduct[] | [] }) {
 }
 
 export async function getStaticPaths() {
-    // Call an external API endpoint to get posts
-    const res = await fetch("http://localhost:3000/api/products")
-    const data = await res.json()
-
-    // Get the paths we want to pre-render based on posts
-    const paths = ["cpu", "storage", "ram", "monitor", "keyboard", "mouse", "power_supply", "motherboard"].map((category) => ({
+    // ["cpu", "storage", "ram", "monitor", "keyboard", "mouse", "power_supply", "motherboard"]
+    const paths = categoryList.map((category) => ({
         params: {category},
     }))
 
-    // We'll pre-render only these paths at build time.
-    // { fallback: false } means other routes should 404.
     return {paths, fallback: false}
 }
 

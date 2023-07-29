@@ -24,6 +24,17 @@ export const PcBuildSlice = createSlice({
     name: "PcBuildSlice",
     initialState,
     reducers: {
+        loadState: (state, action: PayloadAction<TInitialState>) => {
+            console.log(action.payload)
+            categoryList.map((category) => {
+                // @ts-ignore
+                const value = action.payload[category]
+                if (value) {
+                    // @ts-ignore
+                    state[category] = value
+                }
+            })
+        },
         addToList: (state: TInitialState, action: PayloadAction<TProduct>) => {
             const condition = categoryList.includes(action.payload.category)
             if (condition) {
@@ -33,6 +44,7 @@ export const PcBuildSlice = createSlice({
                 // @ts-ignore
                 state[action.payload.category] = null
             }
+            localStorage.setItem('pcBuildData', JSON.stringify(state))
         },
         removeFromList: (state: TInitialState, action: PayloadAction<TProduct>) => {
             const condition = categoryList.includes(action.payload.category)
@@ -40,8 +52,11 @@ export const PcBuildSlice = createSlice({
                 // @ts-ignore
                 state[action.payload.category] = null
             }
+            localStorage.setItem('pcBuildData', JSON.stringify(state))
         },
     }
 })
+
+export const {loadState, addToList, removeFromList} = PcBuildSlice.actions
 
 export default PcBuildSlice.reducer

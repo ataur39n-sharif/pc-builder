@@ -14,7 +14,7 @@ export default function Home({products}: { products: TProduct[] | undefined }) {
             </Head>
             <main>
                 <section>
-                    <div className='container mt-5'>
+                    <div className='container mt-5 mb-5'>
                         <Row gutter={[16, 16]} justify={"center"}>
                             {
                                 products?.slice(0, 9).map((product: TProduct) => (

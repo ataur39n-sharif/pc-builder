@@ -4,7 +4,7 @@ import {TProduct} from "@/Redux/features/productsSlice";
 export default function ProductDetails({data}: { data: TProduct | null }) {
     const router = useRouter()
 
-    console.log(data)
+    // console.log(data)
 
     return (
         <div className='container mt-5'>
@@ -39,11 +39,9 @@ export default function ProductDetails({data}: { data: TProduct | null }) {
 }
 
 export async function getStaticPaths() {
-    // Call an external API endpoint to get posts
     const res = await fetch("http://localhost:3000/api/products")
     const data = await res.json()
 
-    // Get the paths we want to pre-render based on posts
     const paths = (data?.products as TProduct[]).map((pd) => ({
         params: {id: String(pd.id)},
     }))
