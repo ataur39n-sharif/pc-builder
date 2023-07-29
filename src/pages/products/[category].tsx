@@ -25,7 +25,7 @@ export default function ProductsByCategory({data}: { data: TProduct[] | [] }) {
                             <div className={'col-sm-12 col-md-4 '}>
                                 <div className={'d-flex justify-content-center align-items-center'}
                                      style={{position: "relative", maxHeight: ""}}>
-                                    <img src={pd.image} alt={pd.name} width={"75%"}/>
+                                    <img src={pd.image} alt={pd.name} width={"75%"} style={{maxHeight: '300px'}}/>
                                 </div>
                             </div>
                             <div className={'col-sm-12 col-md-5 text-center'}>
