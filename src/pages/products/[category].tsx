@@ -96,7 +96,7 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = async ({params}: { params: any }) => {
-    const allProducts = await fetch("http://localhost:3000/api/products")
+    const allProducts = await fetch("https://pc-builder-silk.vercel.app/api/products")
     const data = await allProducts.json()
     const products = (data?.products as TProduct[]).filter(pd => pd.category === params.category)
     return {
