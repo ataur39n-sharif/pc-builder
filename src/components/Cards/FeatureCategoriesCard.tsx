@@ -45,14 +45,14 @@ export const FeatureCategoriesCard = () => {
     return (
         <Row className={'text-center w-100 d-flex justify-content-center align-items-center'}>
             {
-                list.map((category) => (
+                list.map((category, index) => (
                     <Col
                         xs={12}
                         sm={6}
                         md={3}
                         lg={2}
                         className={'mb-3'}
-
+                        key={index}
                     >
                         <div
                             style={{backgroundColor: "#e7e7e7", minHeight: "7rem"}}

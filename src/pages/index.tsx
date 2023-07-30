@@ -23,7 +23,7 @@ export default function Home({products}: { products: TProduct[] | undefined }) {
                         <h1 className={'text-center p-5'}>Featured product's</h1>
                         <Row gutter={[16, 16]} justify={"center"}>
                             {
-                                products?.slice(0, 6).map((product: TProduct) => (
+                                products?.slice(0, 6).map((product: TProduct, index) => (
                                     <Col sm={24} md={12} lg={8} className='d-flex justify-content-center'
                                          key={product.id}>
                                         <ProductCard product={product}/>
@@ -47,7 +47,7 @@ export default function Home({products}: { products: TProduct[] | undefined }) {
 
 
 export const getServerSideProps = async () => {
-    const result = await fetch('https://mocki.io/v1/590876b7-a6ac-4eb5-bda1-bbfd0735252e')
+    const result = await fetch('https://simple-node-app-csmm.onrender.com/products')
     const data = await result.json()
 
     return {

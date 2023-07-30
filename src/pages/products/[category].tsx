@@ -20,9 +20,9 @@ export default function ProductsByCategory({data}: { data: TProduct[] | [] }) {
                 }
             </h1>
             {
-                data?.map((pd) => {
+                data?.map((pd, index) => {
                     return (
-                        <div className='row m-3 p-3'
+                        <div key={index} className='row m-3 p-3'
                              style={{backgroundColor: "#e7e7e7", borderRadius: "15px", maxHeight: "35vh"}}
                         >
                             <div className={'col-sm-12 col-md-4 '}>
@@ -96,7 +96,7 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = async ({params}: { params: any }) => {
-    const allProducts = await fetch("https://mocki.io/v1/590876b7-a6ac-4eb5-bda1-bbfd0735252e")
+    const allProducts = await fetch("https://simple-node-app-csmm.onrender.com/products")
     const data = await allProducts.json()
     const products = (data?.products as TProduct[]).filter(pd => pd.category === params.category)
     return {

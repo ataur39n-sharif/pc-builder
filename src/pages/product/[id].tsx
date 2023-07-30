@@ -57,7 +57,7 @@ export default function ProductDetails({data}: { data: TProduct | null }) {
 }
 
 export async function getStaticPaths() {
-    const res = await fetch("https://mocki.io/v1/590876b7-a6ac-4eb5-bda1-bbfd0735252e")
+    const res = await fetch("https://simple-node-app-csmm.onrender.com/products")
     const data = await res.json()
 
     const paths = (data?.products as TProduct[]).map((pd) => ({
@@ -70,7 +70,7 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = async ({params}: { params: any }) => {
-    const allProducts = await fetch("https://mocki.io/v1/590876b7-a6ac-4eb5-bda1-bbfd0735252e")
+    const allProducts = await fetch("https://simple-node-app-csmm.onrender.com/products")
     const data = await allProducts.json()
     const selectedProduct = (data?.products as TProduct[]).find(pd => pd.id === Number(params.id))
     return {

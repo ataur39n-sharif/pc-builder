@@ -10,11 +10,11 @@ export default function BuildPc() {
     return (
         <Container>
             {
-                categoryList?.map((category) => {
+                categoryList?.map((category, index) => {
                     // @ts-ignore
                     const pd: TProduct | null = parts[category]
                     return (
-                        <>
+                        <div key={index}>
                             {
                                 pd ?
                                     <div className='row m-3 p-3'
@@ -73,7 +73,7 @@ export default function BuildPc() {
                             }
 
 
-                        </>
+                        </div>
 
                     )
                 })
