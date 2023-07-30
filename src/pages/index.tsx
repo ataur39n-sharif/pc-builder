@@ -47,7 +47,7 @@ export default function Home({products}: { products: TProduct[] | undefined }) {
 
 
 export const getServerSideProps = async () => {
-    const result = await fetch('http://localhost:3000/api/products')
+    const result = await fetch('https://mocki.io/v1/590876b7-a6ac-4eb5-bda1-bbfd0735252e')
     const data = await result.json()
 
     return {

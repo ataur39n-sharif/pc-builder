@@ -96,7 +96,7 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = async ({params}: { params: any }) => {
-    const allProducts = await fetch("https://pc-builder-silk.vercel.app/api/products")
+    const allProducts = await fetch("https://mocki.io/v1/590876b7-a6ac-4eb5-bda1-bbfd0735252e")
     const data = await allProducts.json()
     const products = (data?.products as TProduct[]).filter(pd => pd.category === params.category)
     return {
