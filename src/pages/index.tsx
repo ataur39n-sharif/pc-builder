@@ -4,6 +4,7 @@ import {Col, Row} from "antd";
 import {ProductCard} from "@/components/Cards/ProductCard";
 import {TProduct} from "@/Redux/features/productsSlice";
 import CarouselComponent from "@/components/Carousel";
+import {FeatureCategoriesCard} from "@/components/Cards/FeatureCategoriesCard";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -32,8 +33,12 @@ export default function Home({products}: { products: TProduct[] | undefined }) {
                         </Row>
                     </div>
                 </section>
-                <section>
-                    features categories section
+                <section className={'text-center'}>
+                    <h1 className={'p-5'}>Featured categories</h1>
+                    <div className={'d-flex justify-content-center align-items-center'}>
+                        <FeatureCategoriesCard/>
+                    </div>
+
                 </section>
             </main>
         </>
