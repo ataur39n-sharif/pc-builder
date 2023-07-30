@@ -5,6 +5,7 @@ import {Provider} from 'react-redux';
 import {NavbarComponent} from "@/components/Navbar";
 import RootWrapper from "@/components/RootWrapper";
 import {SessionProvider} from "next-auth/react";
+import {FooterComponent} from "@/components/Footer";
 
 export default function App({Component, pageProps: {session, ...pageProps}}: AppProps) {
 
@@ -14,6 +15,7 @@ export default function App({Component, pageProps: {session, ...pageProps}}: App
                 <RootWrapper>
                     <NavbarComponent/>
                     <Component {...pageProps} />
+                    <FooterComponent/>
                 </RootWrapper>
             </SessionProvider>
         </Provider>

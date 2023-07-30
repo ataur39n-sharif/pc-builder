@@ -3,7 +3,7 @@ import {Inter} from 'next/font/google'
 import {Col, Row} from "antd";
 import {ProductCard} from "@/components/Cards/ProductCard";
 import {TProduct} from "@/Redux/features/productsSlice";
-import {FooterComponent} from "@/components/Footer";
+import CarouselComponent from "@/components/Carousel";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -15,7 +15,7 @@ export default function Home({products}: { products: TProduct[] | undefined }) {
             </Head>
             <main>
                 <section>
-                    slider section
+                    <CarouselComponent/>
                 </section>
                 <section>
                     <div className='container mt-5 mb-5'>
@@ -35,7 +35,6 @@ export default function Home({products}: { products: TProduct[] | undefined }) {
                 <section>
                     features categories section
                 </section>
-                <FooterComponent/>
             </main>
         </>
     )

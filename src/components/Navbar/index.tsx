@@ -5,7 +5,6 @@ import {signIn, signOut, useSession} from "next-auth/react"
 export const NavbarComponent = () => {
     const categoryList = ["cpu", "storage", "ram", "monitor", "keyboard", "mouse", "power_supply", "motherboard"]
     const {data, status} = useSession()
-    console.log('=========>', {data, status})
     return (
         <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
             <Container>

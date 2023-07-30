@@ -25,7 +25,6 @@ export const PcBuildSlice = createSlice({
     initialState,
     reducers: {
         loadState: (state, action: PayloadAction<TInitialState>) => {
-            console.log(action.payload)
             categoryList.forEach((category) => {
                 // @ts-ignore
                 const value = action.payload[category]

@@ -7,7 +7,6 @@ const RootWrapper = ({children}: { children: ReactNode }) => {
     useEffect(() => {
 
         const data = localStorage.getItem('pcBuildData')
-        console.log(data)
         if (data) {
             dispatch(loadState(JSON.parse(data)))
         }
