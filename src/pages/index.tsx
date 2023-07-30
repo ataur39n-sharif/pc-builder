@@ -3,6 +3,7 @@ import {Inter} from 'next/font/google'
 import {Col, Row} from "antd";
 import {ProductCard} from "@/components/Cards/ProductCard";
 import {TProduct} from "@/Redux/features/productsSlice";
+import {FooterComponent} from "@/components/Footer";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -34,9 +35,7 @@ export default function Home({products}: { products: TProduct[] | undefined }) {
                 <section>
                     features categories section
                 </section>
-                <footer>
-                    footer section
-                </footer>
+                <FooterComponent/>
             </main>
         </>
     )

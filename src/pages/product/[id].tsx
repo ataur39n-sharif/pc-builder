@@ -13,7 +13,7 @@ export default function ProductDetails({data}: { data: TProduct | null }) {
                     router?.query?.id
                 }
             </h1>
-            <div className='row'>
+            <section className='row'>
                 <div className='col-sm-12 col-md-6'>
                     <img src={data?.image} alt="product image" width={"100%"} style={{maxHeight: "35em"}}/>
                 </div>
@@ -32,7 +32,13 @@ export default function ProductDetails({data}: { data: TProduct | null }) {
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
+            <section>
+                <p>key of features</p>
+            </section>
+            <section>
+                <p>reviews</p>
+            </section>
         </div>
 
     )

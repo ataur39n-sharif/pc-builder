@@ -17,7 +17,8 @@ export default function BuildPc() {
                         <>
                             {
                                 pd ?
-                                    <div className='row m-3 p-3' style={{border: "1px solid red", maxHeight: "33vh"}}>
+                                    <div className='row m-3 p-3'
+                                         style={{backgroundColor: "#e7e7e7", borderRadius: "15px", maxHeight: "35vh"}}>
                                         <div className={'col-sm-12 col-md-4 '}>
                                             <div className={'d-flex justify-content-center align-items-center'}
                                                  style={{position: "relative"}}>
@@ -54,7 +55,8 @@ export default function BuildPc() {
                                         </div>
                                     </div>
                                     :
-                                    <div className='row m-5' style={{border: "1px solid red", maxHeight: "33vh"}}>
+                                    <div className='row m-5'
+                                         style={{backgroundColor: "#e7e7e7", borderRadius: "15px", maxHeight: "35vh"}}>
 
                                         <div className={'col-sm-12 col-md-6'}>
                                             <div style={{position: "relative", maxHeight: ""}}>

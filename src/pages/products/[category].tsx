@@ -2,7 +2,8 @@ import {useRouter} from "next/router";
 import {TProduct} from "@/Redux/features/productsSlice";
 import {useAppDispatch, useAppSelector} from "@/Redux/hooks";
 import {addToList, categoryList, removeFromList} from "@/Redux/features/pcBuildSlice";
-import {Button} from "react-bootstrap";
+import {Button, Col, Row} from "react-bootstrap";
+import Link from "next/link";
 
 export default function ProductsByCategory({data}: { data: TProduct[] | [] }) {
     const {query} = useRouter()
@@ -21,31 +22,61 @@ export default function ProductsByCategory({data}: { data: TProduct[] | [] }) {
             {
                 data?.map((pd) => {
                     return (
-                        <div className='row m-3 p-3' style={{border: "1px solid red", maxHeight: "33vh"}}>
+                        <div className='row m-3 p-3'
+                             style={{backgroundColor: "#e7e7e7", borderRadius: "15px", maxHeight: "35vh"}}
+                        >
                             <div className={'col-sm-12 col-md-4 '}>
                                 <div className={'d-flex justify-content-center align-items-center'}
                                      style={{position: "relative", maxHeight: ""}}>
                                     <img src={pd.image} alt={pd.name} width={"75%"} style={{maxHeight: '300px'}}/>
                                 </div>
                             </div>
-                            <div className={'col-sm-12 col-md-5 text-center'}>
-                                details
+                            <div className={'col-sm-12 col-md-5 '}>
+                                <p>name</p>
+                                <p>category</p>
+                                <p>price</p>
+                                <p>status</p>
+                                <p>rating</p>
+
                             </div>
-                            <div className={'col-sm-12 col-md-3 text-center'}>
-                                {
-                                    (parts && (parts.id === pd.id)) ? <Button
-                                        variant={"outline-dark"}
-                                        onClick={() => dispatch(removeFromList(pd))}
-                                    >
-                                        Remove component
-                                    </Button> : <Button
-                                        variant={"outline-dark"}
-                                        onClick={() => dispatch(addToList(pd))}
-                                    >
-                                        Select component
-                                    </Button>
-                                }
-                            </div>
+                            {
+
+                                <div
+                                    className={'col-sm-12 col-md-3 text-center d-flex justify-content-center align-items-center'}
+                                >
+                                    <Row>
+                                        <Col md={12} className={'p-2'}>
+                                            {
+                                                categoryList.includes(pd.category) && <>
+                                                    {
+                                                        (parts && (parts.id === pd.id)) ? <Button
+                                                            variant={"outline-dark"}
+                                                            onClick={() => dispatch(removeFromList(pd))}
+                                                        >
+                                                            Remove component
+                                                        </Button> : <Button
+                                                            variant={"outline-dark"}
+                                                            onClick={() => dispatch(addToList(pd))}
+                                                        >
+                                                            Add to PC builder
+                                                        </Button>
+                                                    }
+                                                </>
+                                            }
+                                        </Col>
+                                        <Col md={12} className={'p-2'}>
+                                            <Link href={`/product/${pd.id}`}>
+                                                <Button
+                                                    variant={"outline-dark"}
+                                                >
+                                                    Details
+                                                </Button>
+                                            </Link>
+                                        </Col>
+                                    </Row>
+                                </div>
+                            }
+
                         </div>
                     )
                 })
@@ -56,8 +87,8 @@ export default function ProductsByCategory({data}: { data: TProduct[] | [] }) {
 }
 
 export async function getStaticPaths() {
-    // ["cpu", "storage", "ram", "monitor", "keyboard", "mouse", "power_supply", "motherboard"]
-    const paths = categoryList.map((category) => ({
+    const list = ["cpu", "storage", "ram", "monitor", "keyboard", "mouse", "power_supply", "motherboard"]
+    const paths = list.map((category) => ({
         params: {category},
     }))
 
