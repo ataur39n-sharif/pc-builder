@@ -14,10 +14,14 @@ export default function Home({products}: { products: TProduct[] | undefined }) {
             </Head>
             <main>
                 <section>
+                    slider section
+                </section>
+                <section>
                     <div className='container mt-5 mb-5'>
+                        <h1 className={'text-center p-5'}>Featured product's</h1>
                         <Row gutter={[16, 16]} justify={"center"}>
                             {
-                                products?.slice(0, 9).map((product: TProduct) => (
+                                products?.slice(0, 6).map((product: TProduct) => (
                                     <Col sm={24} md={12} lg={8} className='d-flex justify-content-center'
                                          key={product.id}>
                                         <ProductCard product={product}/>
@@ -27,6 +31,12 @@ export default function Home({products}: { products: TProduct[] | undefined }) {
                         </Row>
                     </div>
                 </section>
+                <section>
+                    features categories section
+                </section>
+                <footer>
+                    footer section
+                </footer>
             </main>
         </>
     )
