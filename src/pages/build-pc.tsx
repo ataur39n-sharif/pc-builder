@@ -1,12 +1,27 @@
-import {categoryList, removeFromList} from "@/Redux/features/pcBuildSlice";
-import {Button, Col, Container, Row} from "react-bootstrap";
+import { categoryList, removeFromList } from "@/Redux/features/pcBuildSlice";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import Link from "next/link";
-import {useAppDispatch, useAppSelector} from "@/Redux/hooks";
-import {TProduct} from "@/Redux/features/productsSlice";
+import { useAppDispatch, useAppSelector } from "@/Redux/hooks";
+import { TProduct } from "@/Redux/features/productsSlice";
+import { useEffect, useState } from "react";
 
 export default function BuildPc() {
+    const [total, setTotal] = useState(0)
     const parts = useAppSelector(state => state.pcBuild)
     const dispatch = useAppDispatch()
+
+    useEffect(() => {
+        const list = Object.entries(parts)
+        let tempTotal = 0;
+        for (let i = 0; i < list.length; i++) {
+            const pd = list[i][1]
+            if (pd) {
+                tempTotal += pd?.price as number
+            }
+        }
+        setTotal(tempTotal)
+    }, [parts])
+
     return (
         <Container>
             {
@@ -18,22 +33,26 @@ export default function BuildPc() {
                             {
                                 pd ?
                                     <div className='row m-3 p-3'
-                                         style={{backgroundColor: "#e7e7e7", borderRadius: "15px", maxHeight: "35vh"}}>
+                                        style={{ backgroundColor: "#e7e7e7", borderRadius: "15px", }}>
                                         <div className={'col-sm-12 col-md-4 '}>
                                             <div className={'d-flex justify-content-center align-items-center'}
-                                                 style={{position: "relative"}}>
+                                                style={{ position: "relative" }}>
                                                 <img src={pd.image} alt={pd.name}
-                                                     width={"75%"} style={{maxHeight: '300px'}}/>
+                                                    width={"75%"} style={{ maxHeight: '300px' }} />
                                             </div>
                                         </div>
-                                        <div className={'col-sm-12 col-md-4 text-center'}>
-                                            {pd.category}
+                                        <div className={'col-sm-12 col-md-4 '}>
+                                            <p> <strong>name:</strong>  {pd.name}</p>
+                                            <p className="p-2 bg-dark text-light text-center" style={{fontSize:"1.4em",borderRadius:"25px"}}> <strong>category</strong> : {pd.category.toUpperCase()}</p>
+                                            <p> <strong>price:</strong>  {pd.price} USD</p>
+                                            <p> <strong> status:</strong> {pd.status}</p>
+                                            <p> <strong> rating: </strong>{pd.rating}</p>
                                         </div>
                                         <div
                                             className={'col-sm-12 col-md-4 text-center d-flex justify-content-center align-items-center'}>
                                             <Row>
                                                 <Col md={12}
-                                                     className={'p-2 '}>
+                                                    className={'p-2 '}>
                                                     <Button
                                                         variant={"outline-dark"}
                                                         onClick={() => dispatch(removeFromList(pd))}
@@ -55,29 +74,31 @@ export default function BuildPc() {
                                         </div>
                                     </div>
                                     :
-                                    <div className='row m-5'
-                                         style={{backgroundColor: "#e7e7e7", borderRadius: "15px", maxHeight: "35vh"}}>
+                                    <div className='row m-5 p-3 text-center'
+                                        style={{ backgroundColor: "#e7e7e7", borderRadius: "15px", maxHeight: "35vh" }}>
 
-                                        <div className={'col-sm-12 col-md-6'}>
-                                            <div style={{position: "relative", maxHeight: ""}}>
-                                                <h1>{category}</h1>
+                                        <div className={'col-sm-12 col-md-6 p-5'}>
+                                            <div style={{ position: "relative", fontSize: "2em" }}>
+                                                <strong>{category.toUpperCase()}</strong>
                                             </div>
                                         </div>
-                                        <div className={'col-sm-12 col-md-3'}>
-                                            details
-                                        </div>
-                                        <div className={'col-sm-12 col-md-3'}>
-                                            <Link href={`/products/${category}`}>Choose component</Link>
+                                        <div className={'col-sm-12 col-md-6  d-flex justify-content-center align-items-center'}>
+                                            <Link href={`/products/${category}`}>
+
+                                                <Button variant="outline-dark">Choose component</Button>
+                                            </Link>
                                         </div>
                                     </div>
                             }
-
-
                         </div>
 
                     )
                 })
             }
+            <div className='row m-5'
+                style={{ backgroundColor: "#e7e7e7", borderRadius: "15px", maxHeight: "25vh" }}>
+                <h5 className="text-end p-3">TOTAL : <strong>{total}</strong> USD</h5>
+            </div>
         </Container>
     )
 }
