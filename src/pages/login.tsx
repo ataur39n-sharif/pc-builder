@@ -15,7 +15,7 @@ export default function SignInPage() {
                 </h1>
                 <Button variant="outline-dark" style={{ fontSize: "5rem" }}
                     onClick={() => signIn('google', {
-                        callbackUrl: query.callbackUrl ? query.callbackUrl as string : window.location.origin,
+                        callbackUrl: query.callbackUrl as string ?? '/',
                     })}
                 >
                     <span>

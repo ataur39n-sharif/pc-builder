@@ -1,14 +1,16 @@
 import Head from 'next/head'
-import {Inter} from 'next/font/google'
-import {Col, Row} from "antd";
-import {ProductCard} from "@/components/Cards/ProductCard";
-import {TProduct} from "@/Redux/features/productsSlice";
+import { Inter } from 'next/font/google'
+import { Col, Row } from "antd";
+import { ProductCard } from "@/components/Cards/ProductCard";
+import { TProduct } from "@/Redux/features/productsSlice";
 import CarouselComponent from "@/components/Carousel";
-import {FeatureCategoriesCard} from "@/components/Cards/FeatureCategoriesCard";
+import { FeatureCategoriesCard } from "@/components/Cards/FeatureCategoriesCard";
+import Link from 'next/link';
+import { Button } from 'react-bootstrap';
 
-const inter = Inter({subsets: ['latin']})
+const inter = Inter({ subsets: ['latin'] })
 
-export default function Home({products}: { products: TProduct[] | undefined }) {
+export default function Home({ products }: { products: TProduct[] | undefined }) {
     return (
         <>
             <Head>
@@ -16,7 +18,7 @@ export default function Home({products}: { products: TProduct[] | undefined }) {
             </Head>
             <main>
                 <section>
-                    <CarouselComponent/>
+                    <CarouselComponent />
                 </section>
                 <section>
                     <div className='container mt-5 mb-5'>
@@ -25,8 +27,8 @@ export default function Home({products}: { products: TProduct[] | undefined }) {
                             {
                                 products?.slice(0, 6).map((product: TProduct, index) => (
                                     <Col sm={24} md={12} lg={8} className='d-flex justify-content-center'
-                                         key={product.id}>
-                                        <ProductCard product={product}/>
+                                        key={product.id}>
+                                        <ProductCard product={product} />
                                     </Col>
                                 ))
                             }
@@ -36,7 +38,7 @@ export default function Home({products}: { products: TProduct[] | undefined }) {
                 <section className={'text-center'}>
                     <h1 className={'p-5'}>Featured categories</h1>
                     <div className={'d-flex justify-content-center align-items-center'}>
-                        <FeatureCategoriesCard/>
+                        <FeatureCategoriesCard />
                     </div>
 
                 </section>

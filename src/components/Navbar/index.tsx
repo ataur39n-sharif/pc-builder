@@ -21,20 +21,12 @@ export const NavbarComponent = () => {
                                 )))
                             }
                         </NavDropdown>
-                        <NavDropdown title="Profile" id="collasible-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">
-                                Another action
-                            </NavDropdown.Item>
-                        </NavDropdown>
-                        {/*<Nav.Link href="#features">Features</Nav.Link>*/}
                         {
                             status === "authenticated" ?
                                 <Nav.Link onClick={() => signOut()}>Sign Out</Nav.Link>
                                 :
                                 <Nav.Link href="/login">Sign in</Nav.Link>
                         }
-                        {/*<Nav.Link onClick={() => signIn('google')}>Sign in</Nav.Link>*/}
                     </Nav>
                     <Link href={'/build-pc'}>
                         <Button variant="dark">PC Builder</Button>
