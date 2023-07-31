@@ -48,7 +48,7 @@ export default function Home({ products }: { products: TProduct[] | undefined })
 }
 
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
     const result = await fetch('https://simple-node-app-csmm.onrender.com/products')
     const data = await result.json()
 

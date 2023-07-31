@@ -99,6 +99,19 @@ export default function BuildPc() {
                 style={{ backgroundColor: "#e7e7e7", borderRadius: "15px", maxHeight: "25vh" }}>
                 <h5 className="text-end p-3">TOTAL : <strong>{total}</strong> USD</h5>
             </div>
+            <div className="d-flex justify-content-center align-items-center">
+                <Button variant="outline-success">
+                    Complete Build
+                </Button>
+            </div>
         </Container>
     )
+}
+
+export const getServerSideProps=()=>{
+    return {
+        props:{
+            data:""
+        }
+    }
 }
