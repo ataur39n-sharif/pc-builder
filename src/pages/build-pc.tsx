@@ -7,20 +7,29 @@ import { useEffect, useState } from "react";
 
 export default function BuildPc() {
     const [total, setTotal] = useState(0)
+    const [allSelected, setAllSelected] = useState(false)
     const parts = useAppSelector(state => state.pcBuild)
     const dispatch = useAppDispatch()
 
     useEffect(() => {
         const list = Object.entries(parts)
+        let status = []
         let tempTotal = 0;
         for (let i = 0; i < list.length; i++) {
             const pd = list[i][1]
+            status.push(pd)
             if (pd) {
                 tempTotal += pd?.price as number
             }
         }
         setTotal(tempTotal)
-    }, [parts])
+        if (!status.includes(null)) {
+            console.log(status.includes(null));
+            setAllSelected(true)
+        }
+    }, [parts,allSelected])
+
+
 
     return (
         <Container>
@@ -43,7 +52,7 @@ export default function BuildPc() {
                                         </div>
                                         <div className={'col-sm-12 col-md-4 '}>
                                             <p> <strong>name:</strong>  {pd.name}</p>
-                                            <p className="p-2 bg-dark text-light text-center" style={{fontSize:"1.4em",borderRadius:"25px"}}> <strong>category</strong> : {pd.category.toUpperCase()}</p>
+                                            <p className="p-2 bg-dark text-light text-center" style={{ fontSize: "1.4em", borderRadius: "25px" }}> <strong>category</strong> : {pd.category.toUpperCase()}</p>
                                             <p> <strong>price:</strong>  {pd.price} USD</p>
                                             <p> <strong> status:</strong> {pd.status}</p>
                                             <p> <strong> rating: </strong>{pd.rating}</p>
@@ -100,7 +109,7 @@ export default function BuildPc() {
                 <h5 className="text-end p-3">TOTAL : <strong>{total}</strong> USD</h5>
             </div>
             <div className="d-flex justify-content-center align-items-center">
-                <Button variant="outline-success">
+                <Button variant={allSelected ? "outline-success" : "outline-danger"} disabled={!allSelected} onClick={() => allSelected && alert('success')}>
                     Complete Build
                 </Button>
             </div>
@@ -108,10 +117,10 @@ export default function BuildPc() {
     )
 }
 
-export const getServerSideProps=()=>{
+export const getServerSideProps = () => {
     return {
-        props:{
-            data:""
+        props: {
+            data: ""
         }
     }
 }
