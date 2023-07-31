@@ -32,7 +32,7 @@ export const NavbarComponent = () => {
                             status === "authenticated" ?
                                 <Nav.Link onClick={() => signOut()}>Sign Out</Nav.Link>
                                 :
-                                <Nav.Link onClick={() => signIn('google')}>Sign in</Nav.Link>
+                                <Nav.Link href="/login">Sign in</Nav.Link>
                         }
                         {/*<Nav.Link onClick={() => signIn('google')}>Sign in</Nav.Link>*/}
                     </Nav>
